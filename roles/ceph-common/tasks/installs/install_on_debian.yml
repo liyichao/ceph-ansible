@@ -57,6 +57,12 @@
     update_cache: yes
   when: nfs_group_name in group_names
 
+- name: install rbdmirror
+  package:
+    name: rbd-mirror
+    state: present
+  when: rbdmirror_group_name in group_names
+
 - name: install ceph mgr
   apt:
     pkg: ceph-mgr
